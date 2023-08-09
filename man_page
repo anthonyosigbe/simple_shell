@@ -1,0 +1,123 @@
+.\" _SimpleShell man page
+.\"
+.TH _SIMPLESHELL "August 2023" "1.0" "Simple Shell Manual"
+
+.SH NAME
+.SH ""
+
+.B _simpleshell
+- Custom implementation of a simple shell.
+
+.SH SYNOPSIS
+.SH ""
+
+#include "simpleshell.h"
+
+int main(void);
+
+.SH DESCRIPTION
+.SH ""
+
+The simple shell is a basic command-line interpreter that allows users to execute commands. 
+This version of a simple shell was developed by cohort #16 ALX students David Kadiri and Anthony Osigbe.
+
+.SS Compilation
+
+.P
+.RS
+#include "simpleshell.h"
+
+$ gcc -Wall -Werror -Wextra -pedantic -o simpleshall *.c
+$ gcc -Wall -Werror -Wextra -pedantic -g -o simpleshell *.c (for debugging)
+.RE
+
+.SS Usage
+.RS
+
+To use the simple shell, run the compiled executable:
+
+.B Input
+.PP
+$ ./simpleshell
+.PP
+.B Output
+.PP
+Welcome to the Simple Shell!
+$ 
+
+The shell will display a prompt and wait for user input. Users can enter commands and the shell will execute them.
+
+.SS Built-in Commands
+.RS
+
+The simple shell supports the following built-in commands:
+
+.IT
+.B exit
+- Exit the shell.
+
+.IT
+.B cd
+- Change the current directory.
+
+.RE
+
+.SS Execution
+.RS
+
+The simple shell executes commands by forking a child process and using the `execve` system call.
+It searches for executable files in the directories listed in the PATH environment variable.
+
+.SS Example
+
+.RS
+
+.B Input
+.PP
+$ ./simpleshell
+.PP
+$ ls
+.PP
+.B Output
+.PP
+Welcome to the Simple Shell!
+$ ls
+file1.txt   file2.txt   directory/
+$ 
+
+.SS Return Value
+
+The return value of the shell program is 0 for successful execution and -1 for errors.
+
+.SH "AUTHORS"
+.SH ""
+
+David Kadiri and Anthony Osigbe
+
+.SH "BUGS"
+
+.SH "SEE ALSO"
+.SH ""
+
+man sh, man bash
+
+.SH "COPYRIGHT"
+.SH ""
+
+This is free software: you are free to change and redistribute it.
+
+.SH "NOTES"
+.SH ""
+
+This manual page was created as part of the Simple Shell project developed by cohort #16 of [ALX SoftWear Engineering].
+
+.SH "VERSION"
+.SH ""
+
+1.0 - August 2023
+
+.SH "DATE"
+.SH ""
+
+August 10, 2023
+
