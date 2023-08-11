@@ -15,7 +15,7 @@ int execute_command(data_of_program *data)
 	{
 		return (outcome);
 	}
-	outcome = find_in_path(data);
+	outcome = path_search(data);
 	if (outcome)
 	{
 		return (outcome);
