@@ -84,4 +84,39 @@ void initialize_data(data_of_program *data, int argc, char *argv[], char **env)
 		data->alias_list[i] = NULL;
 	}
 }
+/**
+ * run_shell_loop - Infinite loop for running the shell.
+ * @prompt: Prompt to be printed.
+ * using if and while loop
+ * @data: Pointer to program data.
+ */
+void run_shell_loop(char *prompt, data_of_program *data)
+{
+	int error_code = 0, string_len = 0;
+
+	while (++(data->exec_counter))
+	{
+		print_string(prompt);
+		error_code = string_len = read_line(data);
+
+		if (error_code == EOF)
+		{
+			free_all_data(data);
+			exit(errno);
+		}
+		if (string_len >= 1)
+		{
+			expand_alias(data);
+			expand_variables(data);
+			tokenize(data);
+			if (data->tokens[0])
+			{
+				error_code = execute(data);
+				if (error_code != 0)
+					_print_error(error_code, data);
+			}
+			free_recurrent_data(data);
+		}
+	}
+}
 
