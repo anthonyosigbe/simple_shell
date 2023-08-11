@@ -58,9 +58,23 @@ typedef struct builtins
 /* Initialize the program data struct */
 void initialize_data(data_of_program *data,
 	int argc, char *argv[], char **env);
+
 /* command_executor.c */
 
 /* Execute a command with its full path */
 int execute_command(data_of_program *data);
+
+/*** OUTPUT DISPLAY UTILITIES ***/
+
+/* print_utilities.c */
+
+/* Print a string to standard output */
+int print_string(char *string);
+
+/* Print a string to standard error */
+int print_to_stderr(char *string);
+
+/* Print an error message to standard error */
+int print_error_message(int error_code, data_of_program *data);
 
 #endif
