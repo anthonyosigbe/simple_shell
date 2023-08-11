@@ -17,18 +17,18 @@
 
 #include "utilities.h" /* Required for message, help, and prompt constants */
 
-/* DATA CONTAINERS FOR STRUCTURES */
+/*** DATA CONTAINERS FOR STRUCTURES ***/
 
 /**
- * struct info - Holds program data
- * @program_name: Name of the executable
- * @input_line: Pointer to input read using _getline
- * @command_name: Pointer to the first user-typed command
- * @exec_counter: Number of executed commands
- * @file_descriptor: File descriptor for command input
- * @tokens: Pointer to array of tokenized input
- * @env: Copy of the environment variables
- * @alias_list: Array of pointers with aliases
+ * struct info - Stores program information
+ * @program_name:  Executable's name
+ * @input_line: Pointer to input obtained using readline.c
+ * @command_name: Pointer to the initial user-entered command
+ * @exec_counter: Count of executed commands
+ * @file_descriptor: Command input file descriptor
+ * @tokens: Pointer to an array of tokenized input
+ * @env: Replication of environment variables
+ * @alias_list: Array of pointers containing aliases
  */
 
 typedef struct info
