@@ -58,6 +58,8 @@ typedef struct builtins
 /* Initialize the program data struct */
 void initialize_data(data_of_program *data,
 	int argc, char *argv[], char **env);
+/* Print the prompt on a new line */
+void handle_ctrl_c(int opr __attribute__((unused)));
 
 /* command_executor.c */
 
