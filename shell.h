@@ -83,11 +83,21 @@ int print_to_stderr(char *string);
 /* Print an error message to standard error */
 int print_error_message(int error_code, data_of_program *data);
 
+
 /*** ENVIRONMENT VARIABLE CONFIGURATION ***/
 
-/* env_control.c */
+/** env_control.c **/
 
 /* Print the current environment */
 void print_environment(data_of_program *data);
+
+/* Retrieve the value of an environment variable */
+char *get_environment_key(char *name, data_of_program *data);
+
+/* Update the value of an environment variable */
+int set_environment_key(char *key, char *value, data_of_program *data);
+
+/* Remove a key from the environment */
+int remove_environment_key(char *key, data_of_program *data);
 
 #endif
