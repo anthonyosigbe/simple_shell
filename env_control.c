@@ -88,7 +88,7 @@ int remove_environment_key(char *key, data_of_program *data)
 	if (key == NULL || data->env == NULL)
 		return (0);
 	/* Determine the length of the variable to be removed */
-	keyLength = str_length(key);
+	keyLength = calculate_string_length(key);
 	for (index = 0; data->env[index]; index++)
 	{
 		/* Iterate through the environment and check for variable match */
