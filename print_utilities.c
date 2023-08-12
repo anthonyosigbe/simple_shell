@@ -9,7 +9,7 @@
 
 int print_string(char *string)
 {
-	return (write(STDOUT_FILENO, string, str_length(string)));
+	return (write(STDOUT_FILENO, string, calculate_string_length(string)));
 }
 
 /**
@@ -21,7 +21,7 @@ int print_string(char *string)
 
 int print_to_stderr(char *string)
 {
-	return (write(STDERR_FILENO, string, str_length(string)));
+	return (write(STDERR_FILENO, string, calculate_string_length(string)));
 }
 
 /**
