@@ -40,6 +40,7 @@ void handle_ctrl_c(int opr __attribute__((unused)))
  * initialize_data - Initializes program data structure.
  * @data: Pointer to data structure.
  * @argv: Array of program arguments.
+ * using if and else statement
  * @env: Environment variables.
  * @argc: Number of command line values.
  */
@@ -88,6 +89,7 @@ void initialize_data(data_of_program *data, int argc, char *argv[], char **env)
  * run_shell_loop - Infinite loop for running the shell.
  * @prompt: Prompt to be printed.
  * using if and while loop
+ * 
  * @data: Pointer to program data.
  */
 void run_shell_loop(char *prompt, data_of_program *data)
