@@ -36,7 +36,7 @@ int print_error_message(int error_code, data_of_program *data)
 {
 	char exec_counter_str[10] = {'\0'};
 
-	long_to_string((long)data->exec_counter, exec_counter_str, 10);
+	convert_long_to_string((long)data->exec_counter, exec_counter_str, 10);
 	if (error_code == 2 || error_code == 3)
 	{
 		print_to_stderr(data->program_name);
