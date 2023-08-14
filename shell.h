@@ -101,6 +101,14 @@ int set_environment_key(char *key, char *value, data_of_program *data);
 /* Remove a key from the environment */
 int remove_environment_key(char *key, data_of_program *data);
 
+/* operations_env.c */
+
 /* Display the shell's environment */
 int environment_builtin(data_of_program *data);
+
+/* Create or update an environment variable */
+int set_environment(data_of_program *data);
+
+/* Delete an environment variable */
+int unset_environment(data_of_program *data);
 #endif
