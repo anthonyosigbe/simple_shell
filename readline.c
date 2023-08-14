@@ -3,6 +3,7 @@
 /**
  * read_line - Read a single line from the prompt.
  * @data: Pointer to the program's data structure.
+ * using if and for loop
  * using if ,for, do and while loop
  * Return: The number of bytes read.
  */
