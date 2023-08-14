@@ -16,6 +16,8 @@ int execute_builtin_list(data_of_program *data)
 		{"exit", exit_builtin},
 		{"env", display_environment},
 		{"help", help_builtin},
+		{"setenv", set_environment},
+		{"unsetenv", unset_environment},
 		{NULL, NULL}
 
 	};
