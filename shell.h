@@ -101,4 +101,6 @@ int set_environment_key(char *key, char *value, data_of_program *data);
 /* Remove a key from the environment */
 int remove_environment_key(char *key, data_of_program *data);
 
+/* Display the shell's environment */
+int environment_builtin(data_of_program *data);
 #endif
