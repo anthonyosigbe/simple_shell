@@ -18,6 +18,8 @@ int execute_builtin_list(data_of_program *data)
 		{"help", help_builtin},
 		{"setenv", set_environment},
 		{"unsetenv", unset_environment},
+		{"alias", alias_builtin},
+		{"cd", change_directory},
 		{NULL, NULL}
 
 	};
