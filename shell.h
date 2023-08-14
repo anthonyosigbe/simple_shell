@@ -55,7 +55,9 @@ typedef struct builtins
 } builtins;
 
 /*** PRIMARY FUNCTIONS ***/
-/* interactive_shell.c */
+
+/** interactive_shell.c **/
+
 /* Initialize the program data struct */
 void initialize_data(data_of_program *data,
 	int argc, char *argv[], char **env);
@@ -66,10 +68,15 @@ void handle_ctrl_c(int opr __attribute__((unused)));
 /* Creates an infinite loop displaying the prompt */
 void run_shell_loop(char *prompt, data_of_program *data);
 
-/* command_executor.c */
+/** command_executor.c **/
 
 /* Execute a command with its full path */
 int execute_command(data_of_program *data);
+
+/** list_operations.c **/
+
+/* Execute built-in commands if matched */
+int execute_builtin_list(data_of_program *data);
 
 /*** OUTPUT DISPLAY UTILITIES ***/
 
@@ -101,6 +108,11 @@ int set_environment_key(char *key, char *value, data_of_program *data);
 /* Remove a key from the environment */
 int remove_environment_key(char *key, data_of_program *data);
 
+/*** INTRINSIC FUNCTIONS ***/
+
+/* operations_env.c */
+
 /* Display the shell's environment */
-int environment_builtin(data_of_program *data);
+int display_environment(data_of_program *data);
+
 #endif
