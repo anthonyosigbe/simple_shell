@@ -133,4 +133,8 @@ int set_environment(data_of_program *data);
 /* Delete an environment variable */
 int unset_environment(data_of_program *data);
 
+/* readline.c */
+
+/* Read a line from standard input */
+int read_line(data_of_program *data);
 #endif
