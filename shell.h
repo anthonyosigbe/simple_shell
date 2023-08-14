@@ -127,5 +127,10 @@ int unset_environment(data_of_program *data);
 /* Display the shell's environment */
 int display_environment(data_of_program *data);
 
+/* Create or update an environment variable */
+int set_environment(data_of_program *data);
+
+/* Delete an environment variable */
+int unset_environment(data_of_program *data);
 
 #endif
