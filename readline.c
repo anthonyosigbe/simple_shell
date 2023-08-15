@@ -49,4 +49,52 @@ int read_line(data_of_program *data)
 
 	return (calculate_string_length(data->input_line));
 }
+/**
+ * separate_logical_ops - Check and split for '&&' and '||' operators.
+ * @array_commands: Array of commands.
+ * @i: Index in the array_commands to be examined.
+ * @array_operators: Array of logical operators for each previous command.
+ *
+ * This function checks the command array for logical operators '&&' and '||'.
+ * If found, it splits the command array accordingly and updates the
+ * operator array.
+ *
+ * Return: Index of the last command in the array_commands.
+ */
+int separate_logical_ops(char *array_commands[], int i, char array_operators[])
+{
+	char *temp = NULL;
+	int j;
+
+	/* Check for the '&' character in the command line */
+	for (j = 0; array_commands[i] != NULL && array_commands[i][j]; j++)
+	{
+	if (array_commands[i][j] == '&' && array_commands[i][j + 1] == '&')
+	{
+	/* Split the line when '&&' is encountered */
+		temp = array_commands[i];
+		array_commands[i][j] = '\0';
+		array_commands[i] = duplicate_string(array_commands[i]);
+		array_commands[i + 1] = duplicate_string(temp + j + 2);
+		i++;
+		array_operators[i] = '&';
+		free(temp);
+		j = 0;
+	}
+	if (array_commands[i][j] == '|' && array_commands[i][j + 1] == '|')
+	{
+	/* Split the line when '||' is found */
+		temp = array_commands[i];
+		array_commands[i][j] = '\0';
+		array_commands[i] = duplicate_string(array_commands[i]);
+		array_commands[i + 1] = duplicate_string(temp + j + 2);
+		i++;
+		array_operators[i] = '|';
+		free(temp);
+		j = 0;
+	}
+	}
+		return (i);
+}
+
 
