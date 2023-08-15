@@ -24,7 +24,8 @@ int find_in_path(data_of_program *data)
 		return (validate_file(data->command_name));
 
 	free(data->tokens[0]);
-	data->tokens[0] = str_concat(str_duplicate("/"), data->command_name);
+	data->tokens[0] = concatenate_strings(duplicate_strings("/"),
+	data->command_name);
 	if (!data->tokens[0])
 		return (2);
 
@@ -38,21 +39,21 @@ int find_in_path(data_of_program *data)
 
 	for (i = 0; directories[i]; i++)
 	{ /* Append the command_name to each directory in the PATH */
-		directories[i] = str_concat(directories[i], data->tokens[0]);
+		directories[i] = concatenate_strings(directories[i], data->tokens[0]);
 		ret_code = validate_file(directories[i]);
 		if (ret_code == 0 || ret_code == 126)
 		{
 			errno = 0;
 			free(data->tokens[0]);
-			data->tokens[0] = str_duplicate(directories[i]);
-			free_array_of_pointers(directories);
+			data->tokens[0] = duplicate_strings(directories[i]);
+			free_directory_array(directories);
 			return (ret_code);
 		}
 	}
 
 	free(data->tokens[0]);
 	data->tokens[0] = NULL;
-	free_array_of_pointers(directories);
+	free_directory_array(directories);
 	return (ret_code);
 }
 /**
@@ -80,7 +81,7 @@ char **generate_path_tokens(data_of_program *data)
 		return (NULL);
 	}
 
-	PATH = str_duplicate(PATH);
+	PATH = duplicate_strings(PATH);
 
 	/* Count the number of directories in the PATH */
 	for (i = 0; PATH[i]; i++)
@@ -94,10 +95,10 @@ char **generate_path_tokens(data_of_program *data)
 
 	/* Tokenize and duplicate each directory path */
 	i = 0;
-	tokens[i] = str_duplicate(_strtok(PATH, ":"));
+	tokens[i] = duplicate_strings(custom_strtok(PATH, ":"));
 	while (tokens[i++])
 	{
-		tokens[i] = str_duplicate(_strtok(NULL, ":"));
+		tokens[i] = duplicate_strings(custom_strtok(NULL, ":"));
 	}
 
 	free(PATH);
