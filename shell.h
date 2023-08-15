@@ -163,4 +163,17 @@ char *get_alias_name(data_of_program *data, char *alias);
 /* Set an alias name */
 int set_alias_name(char *alias_string, data_of_program *data);
 
+/*** AUXILIARY MEMORY MANAGEMENT ***/
+
+/* memory_cleanup.c */
+
+/* Free fields required for each loop */
+void free_recurring_data(data_of_program *data);
+
+/* Free all data fields */
+void free_all_data(data_of_program *data);
+
+/* Free memory allocated for directories */
+void free_directory_array(char **directories);
+
 #endif
