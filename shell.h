@@ -192,4 +192,9 @@ char *concatenate_strings(char *string1, char *string2);
 
 /* Reverse a string */
 void reverse_string(char *string);
+
+/* numeric_operations.c */
+
+/* Convert from integer to string */
+void convert_long_to_string(long number, char *string, int base);
 #endif
