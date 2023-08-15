@@ -176,4 +176,20 @@ void free_all_data(data_of_program *data);
 /* Free memory allocated for directories */
 void free_directory_array(char **directories);
 
+/* string_utilities.c */
+
+/* Calculate the length of a string */
+int calculate_string_length(char *string);
+
+/* Duplicate a string */
+char *duplicate_string(char *string);
+
+/* Compare two strings */
+int compare_strings(char *string1, char *string2, int length);
+
+/* Concatenate two strings */
+char *concatenate_strings(char *string1, char *string2);
+
+/* Reverse a string */
+void reverse_string(char *string);
 #endif
