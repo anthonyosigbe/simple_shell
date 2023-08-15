@@ -140,4 +140,10 @@ int read_line(data_of_program *data);
 
 /* Split lines using logical operators if present */
 int separate_logical_ops(char *command_array[], int i, char operator_array[]);
+
+/* path_search.c */
+
+/* Search for a program in the PATH */
+int find_in_path(data_of_program *data);
+
 #endif
