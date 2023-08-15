@@ -146,4 +146,6 @@ int separate_logical_ops(char *command_array[], int i, char operator_array[]);
 /* Search for a program in the PATH */
 int find_in_path(data_of_program *data);
 
+/* Generate an array of path directories */
+char **generate_path_tokens(data_of_program *data);
 #endif
