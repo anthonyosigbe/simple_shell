@@ -148,4 +148,12 @@ int find_in_path(data_of_program *data);
 
 /* Generate an array of path directories */
 char **generate_path_tokens(data_of_program *data);
+
+/*** STRING MANIPULATION TOOLS ***/
+
+/* alias_operations.c */
+
+/* Print the list of aliases */
+int display_aliases(data_of_program *data, char *alias);
+
 #endif
