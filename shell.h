@@ -156,4 +156,7 @@ char **generate_path_tokens(data_of_program *data);
 /* Print the list of aliases */
 int display_aliases(data_of_program *data, char *alias);
 
+/* Retrieve an alias name */
+char *get_alias_name(data_of_program *data, char *alias);
+
 #endif
