@@ -66,3 +66,54 @@ char *get_alias_name(data_of_program *data, char *alias)
 	/* Return NULL if alias not found */
 	return (NULL);
 }
+
+/**
+ * set_alias_name - Add or override an alias.
+ * @alias_string: Alias to be set in the format (name='value').
+ * @data: Pointer to the program's data structure.
+ *
+ * Return: Zero on success, or a non-zero number if declared in arguments.
+ */
+int set_alias_name(char *alias_string, data_of_program *data)
+{
+	int index, j;
+	char buffer[250] = {'\0'}, *temp = NULL;
+
+	/* Validate the arguments */
+	if (alias_string == NULL || data->alias_list == NULL)
+		return (1);
+	for (index = 0; alias_string[index]; index++)
+	{
+		if (alias_string[index] != '=')
+			buffer[index] = alias_string[index];
+		else
+		{
+			/* Search if the value of the alias is another alias */
+			temp = get_alias_name(data, alias_string + index + 1);
+			break;
+		}
+	}
+	for (j = 0; data->alias_list[j]; j++)
+	{
+		if (compare_strings(buffer, data->alias_list[j], index) &&
+				data->alias_list[j][index] == '=')
+		{
+			free(data->alias_list[j]);
+			break;
+		}
+	}
+	/* Add the alias */
+	if (temp)
+	{
+		/* If the alias already exists, append the value */
+		buffer_add(buffer, "=");
+		buffer_add(buffer, temp);
+		data->alias_list[j] = duplicate_string(buffer);
+	}
+	else
+	{
+		/* If the alias does not exist, create it */
+		data->alias_list[j] = duplicate_string(alias_string);
+	}
+	return (0);
+}
