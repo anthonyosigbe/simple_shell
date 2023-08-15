@@ -55,4 +55,82 @@ int find_in_path(data_of_program *data)
 	free_array_of_pointers(directories);
 	return (ret_code);
 }
+/**
+ * generate_path_tokens - Tokenize the PATH environment variable
+ * into directories.
+ *
+ * @data: Pointer to the program's data structure.
+ *
+ * This function splits the PATH environment variable into individual
+ * directory paths and returns them as an array.
+ *
+ * Return: An array of directory paths or NULL if PATH is not set.
+ */
+char **generate_path_tokens(data_of_program *data)
+{
+	int index = 0;
+	int counter_directories = 2;
+	char **tokens = NULL;
+	char *PATH;
+
+	/* Get the value of the PATH environment variable */
+	PATH = get_environment_key("PATH", data);
+	if ((PATH == NULL) || PATH[0] == '\0')
+	{
+		return (NULL);
+	}
+
+	PATH = str_duplicate(PATH);
+
+	/* Count the number of directories in the PATH */
+	for (i = 0; PATH[i]; i++)
+	{
+		if (PATH[i] == ':')
+			counter_directories++;
+	}
+
+	/* Reserve space for the array of pointers */
+	tokens = malloc(sizeof(char *) * counter_directories);
+
+	/* Tokenize and duplicate each directory path */
+	i = 0;
+	tokens[i] = str_duplicate(_strtok(PATH, ":"));
+	while (tokens[i++])
+	{
+		tokens[i] = str_duplicate(_strtok(NULL, ":"));
+	}
+
+	free(PATH);
+	PATH = NULL;
+	return (tokens);
+}
+
+/**
+ * validate_file - Validate if a file exists, is not a directory, and has
+ * execution permissions.
+ *
+ * @full_path: Pointer to the full file name.
+ *
+ * This function checks whether the specified file exists, is not a directory,
+ * and has execution permissions.
+ *
+ * Return: 0 on success, or an error code if the file doesn't meet criteria.
+ */
+int validate_file(char *full_path)
+{
+	struct stat sb;
+
+	if (stat(full_path, &sb) != -1)
+	{
+		if (S_ISDIR(sb.st_mode) || access(full_path, X_OK))
+		{
+			errno = 126;
+			return (126);
+		}
+		return (0);
+	}
+	/* If the file doesn't exist */
+	errno = 127;
+	return (127);
+}
 
