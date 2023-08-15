@@ -108,7 +108,8 @@ int set_environment_key(char *key, char *value, data_of_program *data);
 /* Remove a key from the environment */
 int remove_environment_key(char *key, data_of_program *data);
 
-<<<<<<< HEAD
+< < < < < < < HEAD
+
 /* operations_env.c */
 
 /* Display the shell's environment */
@@ -158,5 +159,8 @@ int display_aliases(data_of_program *data, char *alias);
 
 /* Retrieve an alias name */
 char *get_alias_name(data_of_program *data, char *alias);
+
+/* Set an alias name */
+int set_alias_name(char *alias_string, data_of_program *data);
 
 #endif
