@@ -7,6 +7,7 @@
  * @string: Buffer to contain the resultant string.
  * @base: Base used for the conversion process.
  * using if else and while loop
+ *
  * Description: This function transforms a provided numerical
  * value into a string
  *
