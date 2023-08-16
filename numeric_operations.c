@@ -45,4 +45,64 @@ void convert_long_to_string(long number, char *string, int base)
 		string[index] = '\0';
 		reverse_string(string);
 }
+/**
+ * convert_to_integer - Transform a string into an integer.
+ * @s: Pointer to the input string.
+ *
+ * Description: This function converts the given string into an
+ * integer value.
+ *
+ * Return: The resulting integer value or 0 if conversion fails.
+ */
+
+int convert_to_integer(char *s)
+{
+	int sign = 1;
+	unsigned int number = 0;
+
+	/* Step 1: Analyze the sign */
+	while (!('0' <= *s && *s <= '9') && *s != '\0'
+	{
+	if (*s == '-')
+	sign *= -1;
+	if (*s == '+')
+	sign *= +1;
+	s++;
+	}
+
+	/* Step 2: Extract the number */
+	while ('0' <= *s && *s <= '9' && *s != '\0')
+	{
+	number = (number * 10) + (*s - '0');
+	s++;
+	}
+	return (number * sign);
+}
+
+/**
+ * count_char_occurrences - Calculate the occurrences of a specific
+ * character in a string.
+ *
+ * @string: Pointer to the input string.
+ * @character: String containing the characters to be counted.
+ *
+ * Description: This function tallies the occurrences of the provided
+ * character within
+ *
+ * the given string and returns the resulting count.
+ *
+ * Return: The count of character occurrences.
+ */
+
+int count_char_occurrences(char *string, char *character)
+{
+	int index = 0, count = 0;
+
+	for (; string[index]; index++)
+	{
+	if (string[index] == character[0])
+	count++;
+	}
+	return (count);
+}
 
