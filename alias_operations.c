@@ -17,7 +17,7 @@ int display_aliases(data_of_program *data, char *alias)
 		alias_length = calculate_string_length(alias);
 		for (index = 0; data->alias_list[index]; index++)
 		{
-			if (!alias || (compare_strings(data->alias_list[index], lias, alias_length)
+			if (!alias || (compare_strings(data->alias_list[index], alias, alias_length)
 						&& data->alias_list[index][alias_length] == '='))
 			{
 				for (j = 0; data->alias_list[index][j]; j++)

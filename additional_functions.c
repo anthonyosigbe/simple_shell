@@ -104,7 +104,7 @@ int help_builtin(data_of_program *data)
 	int index, length = 0;
 	char *messages[6] = {NULL};
 
-	messages[0] = HELP_MESSAGE;
+	messages[0] = HELP_MSG;
 
 	/* Validate arguments */
 	if (data->tokens[1] == NULL)
@@ -118,11 +118,11 @@ int help_builtin(data_of_program *data)
 		perror(data->command_name);
 		return (5);
 	}
-	messages[1] = HELP_EXIT_MESSAGE;
-	messages[2] = HELP_ENV_MESSAGE;
-	messages[3] = HELP_SETENV_MESSAGE;
-	messages[4] = HELP_UNSETENV_MESSAGE;
-	messages[5] = HELP_CD_MESSAGE;
+	messages[1] = HELP_EXIT_MSG;
+	messages[2] = HELP_ENV_MSG;
+	messages[3] = HELP_SETENV_MSG;
+	messages[4] = HELP_UNSETENV_MSG;
+	messages[5] = HELP_CD_MSG;
 
 	for (index = 0; messages[index]; index++)
 	{
@@ -164,4 +164,3 @@ int alias_builtin(data_of_program *data)
 
 	return (0);
 }
-
