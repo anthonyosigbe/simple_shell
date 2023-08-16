@@ -1,7 +1,7 @@
 <h1>C - Simple Shell Group Project</h1>
 
 Team members: Anthony Osigbe and David kadiri
-
+![shell](https://github.com/anthonyosigbe/simple_shell/assets/45193993/95f16450-eae8-44dd-a976-4b9b590b6856)
 #Tasks 
 
 * 0. Betty would be proud
