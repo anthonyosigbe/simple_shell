@@ -78,6 +78,14 @@ int execute_command(data_of_program *data);
 /* Execute built-in commands if matched */
 int execute_builtin_list(data_of_program *data);
 
+/*** variable_expansions.c ***/
+
+/* Expand variables */
+void expand_variables(data_of_program *data);
+
+/* Expand aliases */
+void expand_alias(data_of_program *data);
+
 /*** OUTPUT DISPLAY UTILITIES ***/
 
 /* print_utilities.c */
