@@ -226,4 +226,11 @@ void reverse_string(char *string);
 
 /* Convert from integer to string */
 void convert_long_to_string(long number, char *string, int base);
+
+/* Convert a string to an integer */
+int convert_to_integer(char *s);
+
+/* Count occurrences of a character in a string */
+int count_char_occurrences(char *string, char *character);
+
 #endif
