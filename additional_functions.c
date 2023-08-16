@@ -103,9 +103,9 @@ int help_builtin(data_of_program *data)
 {
 	int index, length = 0;
 	char *messages[6] = {NULL};
+	char help_msg_part1[] = "This is a long help message...";
 
-	messages[0] = HELP_MSG;
-
+	messages[0] = help_msg_part1;
 	/* Validate arguments */
 	if (data->tokens[1] == NULL)
 	{

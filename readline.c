@@ -36,7 +36,7 @@ int read_line(data_of_program *data)
 		i = 0;
 		do {
 			array_commands[i] = duplicate_string(custom_strtok(i ? NULL : buff, "\n;"));
-			i = check_logic_ops(array_commands, i, array_operators);
+			i = separate_logical_ops(array_commands, i, array_operators);
 		} while (array_commands[i++]);
 	}
 
@@ -96,5 +96,3 @@ int separate_logical_ops(char *array_commands[], int i, char array_operators[])
 	}
 		return (i);
 }
-
-

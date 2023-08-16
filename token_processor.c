@@ -10,13 +10,14 @@ void tokenize(data_of_program *data)
 {
 	char *delimiter = " \t";
 	int outer_index = 0, token_count = 2, length;
+	int inner_index;
 
 	length = calculate_string_length(data->input_line);
 	if (length && data->input_line[length - 1] == '\n')
 		data->input_line[length - 1] = '\0';
 	for (; data->input_line[outer_index]; outer_index++)
 	{
-		for (int inner_index = 0; delimiter[inner_index]; inner_index++)
+		for (inner_index = 0; delimiter[inner_index]; inner_index++)
 		{
 			if (data->input_line[outer_index] == delimiter[inner_index])
 				token_count++;

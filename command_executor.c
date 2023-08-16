@@ -15,7 +15,7 @@ int execute_command(data_of_program *data)
 	{
 		return (outcome);
 	}
-	outcome = path_search(data);
+	outcome = find_in_path(data);
 	if (outcome)
 	{
 		return (outcome);
@@ -24,8 +24,9 @@ int execute_command(data_of_program *data)
 	{
 			pid = fork();
 		if (pid == -1)
-		[
-			perror(data->command_name), exit(EXIT_FAILURE);
+		{
+			perror(data->command_name);
+			exit(EXIT_FAILURE);
 		}
 		if (pid == 0)
 		{
@@ -50,4 +51,3 @@ int execute_command(data_of_program *data)
 	}
 	return (0);
 }
-

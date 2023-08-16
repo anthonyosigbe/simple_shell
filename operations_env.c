@@ -22,7 +22,7 @@ int display_environment(data_of_program *data)
 			/* Check for the presence of '=' character */
 			if (data->tokens[1][index] == '=')
 			{
-				var_copy = calculate_string_length(get_environment_key(cpname, data));
+				var_copy = duplicate_string(get_environment_key(cpname, data));
 				if (var_copy != NULL)
 					set_environment_key(cpname, data->tokens[1] + index + 1, data);
 

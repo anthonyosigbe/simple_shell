@@ -14,7 +14,7 @@
 void free_recurring_data(data_of_program *data)
 {
 	if (data->tokens)
-		free_array_of_pointers(data->tokens);
+		free_directory_array(data->tokens);
 	if (data->input_line)
 		free(data->input_line);
 	if (data->command_name)

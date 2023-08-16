@@ -24,7 +24,7 @@ int find_in_path(data_of_program *data)
 		return (validate_file(data->command_name));
 
 	free(data->tokens[0]);
-	data->tokens[0] = concatenate_strings(duplicate_strings("/"),
+	data->tokens[0] = concatenate_strings(duplicate_string("/"),
 	data->command_name);
 	if (!data->tokens[0])
 		return (2);
@@ -37,15 +37,15 @@ int find_in_path(data_of_program *data)
 		return (127);
 	}
 
-	for (i = 0; directories[i]; i++)
+	for (index = 0; directories[index]; index++)
 	{ /* Append the command_name to each directory in the PATH */
-		directories[i] = concatenate_strings(directories[i], data->tokens[0]);
-		ret_code = validate_file(directories[i]);
+		directories[index] = concatenate_strings(directories[index], data->tokens[0]);
+		ret_code = validate_file(directories[index]);
 		if (ret_code == 0 || ret_code == 126)
 		{
 			errno = 0;
 			free(data->tokens[0]);
-			data->tokens[0] = duplicate_strings(directories[i]);
+			data->tokens[0] = duplicate_string(directories[index]);
 			free_directory_array(directories);
 			return (ret_code);
 		}
@@ -81,12 +81,12 @@ char **generate_path_tokens(data_of_program *data)
 		return (NULL);
 	}
 
-	PATH = duplicate_strings(PATH);
+	PATH = duplicate_string(PATH);
 
 	/* Count the number of directories in the PATH */
-	for (i = 0; PATH[i]; i++)
+	for (index = 0; PATH[index]; index++)
 	{
-		if (PATH[i] == ':')
+		if (PATH[index] == ':')
 			counter_directories++;
 	}
 
@@ -94,11 +94,11 @@ char **generate_path_tokens(data_of_program *data)
 	tokens = malloc(sizeof(char *) * counter_directories);
 
 	/* Tokenize and duplicate each directory path */
-	i = 0;
-	tokens[i] = duplicate_strings(custom_strtok(PATH, ":"));
-	while (tokens[i++])
+	index = 0;
+	tokens[index] = duplicate_string(custom_strtok(PATH, ":"));
+	while (tokens[index++])
 	{
-		tokens[i] = duplicate_strings(custom_strtok(NULL, ":"));
+		tokens[index] = duplicate_string(custom_strtok(NULL, ":"));
 	}
 
 	free(PATH);
@@ -134,4 +134,3 @@ int validate_file(char *full_path)
 	errno = 127;
 	return (127);
 }
-

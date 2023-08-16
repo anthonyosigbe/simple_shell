@@ -113,11 +113,11 @@ void run_shell_loop(char *prompt, data_of_program *data)
 			tokenize(data);
 			if (data->tokens[0])
 			{
-				error_code = execute(data);
+				error_code = execute_command(data);
 				if (error_code != 0)
-					_print_error(error_code, data);
+					print_error_message(error_code, data);
 			}
-			free_recurrent_data(data);
+			free_recurring_data(data);
 		}
 	}
 }

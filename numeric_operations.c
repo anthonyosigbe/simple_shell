@@ -9,12 +9,8 @@
  * using if else and while loop
  *
  * Description: This function transforms a provided numerical
- * value into a string
- *
- * representation using the designated base. The resulting string
- * is placed into the
- *
- * provided buffer.
+ * value into a string representation using the designated base.
+ * The resulting string is placed into the provided buffer.
  *
  * Return: None.
  */
@@ -23,28 +19,27 @@ void convert_long_to_string(long number, char *string, int base)
 {
 	int index = 0, isNegative = 0;
 	long quotient = number;
-	char letters[] = "0123456789abcdef";
+	char letters[] = {"0123456789abcdef"};
 
 	if (quotient == 0)
 		string[index++] = '0';
-
 	if (string[0] == '-')
 		isNegative = 1;
 
 	while (quotient)
 	{
-	if (quotient < 0)
-		string[index++] = letters[-(quotient % base)];
-	else
-		string[index++] = letters[quotient % base];
+		if (quotient < 0)
+			string[index++] = letters[-(quotient % base)];
+		else
+			string[index++] = letters[quotient % base];
 		quotient /= base;
 	}
 	if (isNegative)
 		string[index++] = '-';
-
-		string[index] = '\0';
-		reverse_string(string);
+	string[index] = '\0';
+	reverse_string(string);
 }
+
 /**
  * convert_to_integer - Transform a string into an integer.
  * @s: Pointer to the input string.
@@ -61,20 +56,19 @@ int convert_to_integer(char *s)
 	unsigned int number = 0;
 
 	/* Step 1: Analyze the sign */
-	while (!('0' <= *s && *s <= '9') && *s != '\0'
+	while (!('0' <= *s && *s <= '9') && *s != '\0')
 	{
-	if (*s == '-')
-	sign *= -1;
-	if (*s == '+')
-	sign *= +1;
-	s++;
+		if (*s == '-')
+			sign *= -1;
+		if (*s == '+')
+			sign *= +1;
+		s++;
 	}
-
 	/* Step 2: Extract the number */
 	while ('0' <= *s && *s <= '9' && *s != '\0')
 	{
-	number = (number * 10) + (*s - '0');
-	s++;
+		number = (number * 10) + (*s - '0');
+		s++;
 	}
 	return (number * sign);
 }
