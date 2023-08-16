@@ -233,4 +233,12 @@ int convert_to_integer(char *s);
 /* Count occurrences of a character in a string */
 int count_char_occurrences(char *string, char *character);
 
+/* string_tokenizer.c */
+
+/* Tokenize a string using a specified delimiter */
+void tokenize(data_of_program *data);
+
+/* Create a pointer to a substring */
+char *custom_strtok(char *line, char *delimiter);
+
 #endif
