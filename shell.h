@@ -146,6 +146,23 @@ int set_environment(data_of_program *data);
 /* Delete an environment variable */
 int unset_environment(data_of_program *data);
 
+/*** additional_functions.c ***/
+
+/* Terminate the shell */
+int exit_builtin(data_of_program *data);
+
+/* Change the current directory */
+int change_directory(data_of_program *data);
+
+/* Set the working directory */
+int set_working_directory(data_of_program *data, char *new_directory);
+
+/* Display help information */
+int help_builtin(data_of_program *data);
+
+/* Set, unset, and show aliases */
+int alias_builtin(data_of_program *data);
+
 /* readline.c */
 
 /* Read a line from standard input */
