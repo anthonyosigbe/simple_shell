@@ -96,3 +96,23 @@ void expand_alias(data_of_program *data)
 		data->input_line = duplicate_string(line);
 	}
 }
+
+/**
+ * buffer_add - Append a string at the end of the buffer.
+ * @buffer: Buffer to be filled.
+ * @str_to_add: String to be copied into the buffer.
+ *
+ * Return: The length of the updated buffer.
+ */
+int buffer_add(char *buffer, char *str_to_add)
+{
+	int length, index;
+
+	length = calculate_string_length(buffer);
+	for (i = 0; str_to_add[i]; i++)
+	{
+		buffer[length + i] = str_to_add[i];
+	}
+	buffer[length + i] = '\0';
+	return (length + i);
+}
