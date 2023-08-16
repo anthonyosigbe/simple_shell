@@ -120,8 +120,6 @@ int set_environment_key(char *key, char *value, data_of_program *data);
 /* Remove a key from the environment */
 int remove_environment_key(char *key, data_of_program *data);
 
-< < < < < < < HEAD
-
 /* operations_env.c */
 
 /* Display the shell's environment */
