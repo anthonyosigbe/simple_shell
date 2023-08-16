@@ -86,6 +86,10 @@ void expand_variables(data_of_program *data);
 /* Expand aliases */
 void expand_alias(data_of_program *data);
 
+/* Append a string to the end of the buffer */
+int add_to_buffer(char *buffer, char *string_to_add);
+
+
 /*** OUTPUT DISPLAY UTILITIES ***/
 
 /* print_utilities.c */
