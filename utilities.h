@@ -2,7 +2,7 @@
 #define UTILITIES_HEADER
 
 /* Message displayed as the shell prompt */
-#define PROMPT_MSG " $ " /* Necessary for signal compatibility */
+#define PROMPT_MSG "$ " /* Necessary for signal compatibility */
 
 /* Macro for marking unused variables with an attribute */
 #define UNUSED __attribute__((unused))
