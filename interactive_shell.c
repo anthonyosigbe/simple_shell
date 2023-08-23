@@ -89,7 +89,6 @@ void initialize_data(data_of_program *data, int argc, char *argv[], char **env)
  * run_shell_loop - Infinite loop for running the shell.
  * @prompt: Prompt to be printed.
  * using if and while loop
- * 
  * @data: Pointer to program data.
  */
 void run_shell_loop(char *prompt, data_of_program *data)
