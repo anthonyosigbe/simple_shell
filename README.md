@@ -2,7 +2,7 @@
 
 Team members: Anthony Osigbe and David kadiri
 ![shell](https://github.com/anthonyosigbe/simple_shell/assets/45193993/95f16450-eae8-44dd-a976-4b9b590b6856)
-#Tasks 
+#Tasks
 
 * 0. Betty would be proud
 (Write a beautiful code that passes the Betty checks)
@@ -32,15 +32,14 @@ handle commands with arguments)
 (Simple shell 0.1 +
 
 Handle command lines with arguments)
-
-* 3. Simple shell 0.3 
+* 3. Simple shell 0.3
 (Simple shell 0.2 +
 
 Handle the PATH
 fork must not be called if the command doesn’t exist)
 
-* 4. Simple shell 0.4 
- (Simple shell 0.3 +
+* 4. Simple shell 0.4
+(Simple shell 0.3 +
 
 Implement the exit built-in, that exits the shell
 Usage: exit

@@ -39,7 +39,8 @@ int find_in_path(data_of_program *data)
 
 	for (index = 0; directories[index]; index++)
 	{ /* Append the command_name to each directory in the PATH */
-		directories[index] = concatenate_strings(directories[index], data->tokens[0]);
+		directories[index] = concatenate_strings(directories[index],
+				data->tokens[0]);
 		ret_code = validate_file(directories[index]);
 		if (ret_code == 0 || ret_code == 126)
 		{
