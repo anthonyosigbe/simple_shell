@@ -17,8 +17,7 @@ int main(void);
 
 .SH DESCRIPTION
 .SH ""
-
-The simple shell is a basic command-line interpreter that allows users to execute commands. 
+The simple shell is a basic command-line interpreter that allows users to execute commands.
 This version of a simple shell was developed by cohort #16 ALX students David Kadiri and Anthony Osigbe.
 
 .SS Compilation
@@ -43,8 +42,7 @@ $ ./simpleshell
 .B Output
 .PP
 Welcome to the Simple Shell!
-$ 
-
+$
 The shell will display a prompt and wait for user input. Users can enter commands and the shell will execute them.
 
 .SS Built-in Commands
@@ -83,7 +81,7 @@ $ ls
 Welcome to the Simple Shell!
 $ ls
 file1.txt   file2.txt   directory/
-$ 
+$
 
 .SS Return Value
 
